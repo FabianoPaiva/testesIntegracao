@@ -37,13 +37,13 @@ O objetivo deste repositório é demonstrar uma abordagem moderna e robusta para
 
 ```
 testesIntegracao/
-├── node_modules/             # Dependências do projeto gerenciadas pelo npm
-├── src/                      # Código-fonte da aplicação (quando aplicável)
+├── node_modules/                   # Dependências do projeto gerenciadas pelo npm
+├── src/                            # Código-fonte da aplicação (quando aplicável)
 ├── test/
-│   └── user.integration.spec.ts # Suíte principal de testes de integração
-├── package.json              # Metadados, dependências e scripts de execução
-├── tsconfig.json             # Configuração estrita do compilador TypeScript
-└── vitest.config.ts          # Configuração do ambiente Vitest (globals: true)
+│   └── user.integration.spec.ts    # Suíte principal de testes de integração
+├── package.json                    # Metadados, dependências e scripts de execução
+├── tsconfig.json                   # Configuração estrita do compilador TypeScript
+└── vitest.config.ts                # Configuração do ambiente Vitest (globals: true)
 ```
 
 ---
@@ -92,19 +92,19 @@ npx vitest
 A suíte cobre rigorosamente 5 pilares fundamentais da qualidade de APIs:
 
 ```
-#	Cenário / Descrição	                         Método	            Rota / Endpoint	  Status Esperado
-1	Caminho Feliz e Auditoria (GET após PATCH)	 PATCH + GET	    /users/:id	          200 OK
-2	Validação de Payload Inválido (Bad Request)	 PATCH	            /users/:id	          400 Bad Request
-3	Conflito de Regra de Negócio (E-mail Duplicado)	 PATCH	            /users/:id	          409 Conflict
-4	Tratamento de Recurso Inexistente	         PATCH	            /users/:id	          404 Not Found
-5	Idempotência de Exclusão (Delete Duplo)	         DELETE	            /users/:id	          204 No Content → 404 Not Found
+#	Cenário / Descrição	                              Método	            Rota / Endpoint	  Status Esperado
+1	Caminho Feliz e Auditoria (GET após PATCH)	      PATCH + GET	    /users/:id	          200 OK
+2	Validação de Payload Inválido (Bad Request)	      PATCH	            /users/:id	          400 Bad Request
+3	Conflito de Regra de Negócio (E-mail Duplicado)	      PATCH	            /users/:id	          409 Conflict
+4	Tratamento de Recurso Inexistente	              PATCH	            /users/:id	          404 Not Found
+5	Idempotência de Exclusão (Delete Duplo)	              DELETE	            /users/:id	          204 No Content → 404 Not Found
 ```
 
 ---
 
 ## 📐 Boas Práticas de QA Aplicadas
 
-1 - **Isolamento de Massa:** Uso de ganchos de ciclo de vida (beforeAll e afterAll) para provisionar e destruir dados dinamicamente, eliminando dependência entre testes (flaky tests).
-2 - **Auditoria de Efeito Colateral:** O teste de alteração (PATCH) não valida apenas o retorno da requisição, mas dispara uma consulta subsequente (GET) para auditar a persistência real no repositório.
-3 - **Validação de Idempotência:** Garantia arquitetural de que requisições destrutivas repetidas (DELETE) mantêm o estado do sistema consistente e previsível.
-4 - **Padronização de Contratos:** Respostas de erro estruturadas seguindo o padrão REST corporativo (contendo payload descritivo de erro).
+1. **Isolamento de Massa:** Uso de ganchos de ciclo de vida (beforeAll e afterAll) para provisionar e destruir dados dinamicamente, eliminando dependência entre testes (flaky tests).
+2. **Auditoria de Efeito Colateral:** O teste de alteração (PATCH) não valida apenas o retorno da requisição, mas dispara uma consulta subsequente (GET) para auditar a persistência real no repositório.
+3. **Validação de Idempotência:** Garantia arquitetural de que requisições destrutivas repetidas (DELETE) mantêm o estado do sistema consistente e previsível.
+4. **Padronização de Contratos:** Respostas de erro estruturadas seguindo o padrão REST corporativo (contendo payload descritivo de erro).
