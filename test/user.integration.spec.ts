@@ -1,6 +1,6 @@
 /**
  * @file user.integration.spec.ts
- * @description Suíte de Testes de Integração de Nível Corporativo (Enterprise) para a API de Gestão de Usuários.
+ * @description Suíte de Testes de Integração para a API de Gestão de Usuários.
  * 
  * Tecnologias utilizadas:
  * - Vitest: Framework moderno e rápido de testes.
@@ -73,7 +73,9 @@ app.patch('/users/:id', (req, res) => {
 });
 
 /**
- * Rota GET: Consulta de usuário por ID (Utilizada para auditoria de persistência).
+ * Rota GET: Consulta de usuário por ID.
+ * - 404: Se o registro não for localizado.
+ * - 200: Retorna o objeto JSON do usuário encontrado.
  */
 app.get('/users/:id', (req, res) => {
   const user = users.find((u) => u.id === req.params.id);
@@ -103,7 +105,7 @@ let server: any;
 const PORT = 3333;
 
 // ============================================================================
-// 2. SUÍTE DE TESTES DE INTEGRAÇÃO CORPORATIVA
+// 2. SUÍTE DE TESTES DE INTEGRAÇÃO
 // ============================================================================
 describe('Testes de Integração - Gestão de Usuários (API Enterprise)', () => {
   let createdUserId: string;
@@ -140,7 +142,7 @@ describe('Testes de Integração - Gestão de Usuários (API Enterprise)', () =>
   });
 
   // --------------------------------------------------------------------------
-  // GRUPO 1: CAMINHOS FELIZES E AUDITORIA DE ESTADO
+  // GRUPO 1: CAMINHOS FELIZES - Testes de Contrato e Persistência 
   // --------------------------------------------------------------------------
 
   it('Deverá atualizar parcialmente o usuário com sucesso e persistir no banco (GET após PATCH)', async () => {
@@ -160,7 +162,7 @@ describe('Testes de Integração - Gestão de Usuários (API Enterprise)', () =>
     expect(patchResponse.status).toBe(200);
     expect(patchResponse.body.status).toBe('ativo');
 
-    // Passo 2 (Auditoria de QA): Consulta o banco via GET para garantir persistência real
+    // Passo 2: Consulta o banco via GET para garantir persistência real
     const getResponse = await request(server).get(`/users/${createdUserId}`);
     
     expect(getResponse.status).toBe(200);
@@ -200,7 +202,7 @@ describe('Testes de Integração - Gestão de Usuários (API Enterprise)', () =>
   });
 
   // --------------------------------------------------------------------------
-  // GRUPO 3: PADRÃO CORPORATIVO - IDEMPOTÊNCIA DO DELETE
+  // GRUPO 3: IDEMPOTÊNCIA DO DELETE 
   // --------------------------------------------------------------------------
 
   it('Deverá garantir a idempotência ao tentar deletar o mesmo usuário duas vezes', async () => {
