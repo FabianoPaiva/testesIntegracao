@@ -94,7 +94,7 @@ npx vitest
 A suíte cobre rigorosamente 5 pilares fundamentais da qualidade de APIs:
 
 ```
-#	Cenário / Descrição	                              Método	        Rota / Endpoint	  Status Esperado
+#	Cenário / Descrição	                              Método	        Rota / Endpoint	      Status Esperado
 1	Caminho Feliz e Auditoria (GET após PATCH)	      PATCH + GET	    /users/:id	          200 OK
 2	Validação de Payload Inválido (Bad Request)	      PATCH	            /users/:id	          400 Bad Request
 3	Conflito de Regra de Negócio (E-mail Duplicado)	  PATCH	            /users/:id	          409 Conflict
