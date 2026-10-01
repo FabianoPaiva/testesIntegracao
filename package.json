@@ -3,33 +3,46 @@
   "main": "./build/index.js",
   "type": "module",
   "version": "1.0.0",
-  "description": "",
+  "description": "[![Vitest](https://img.shields.io/badge/Vitest-v5.0-brightgreen.svg)](https://vitest.dev/)\r [![TypeScript](https://img.shields.io/badge/TypeScript-Strict-blue.svg)](https://www.typescriptlang.org/)\r [![Supertest](https://img.shields.io/badge/Supertest-HTTP-orange.svg)](https://github.com/ladjs/supertest)\r [![Status](https://img.shields.io/badge/Status-Passing-success.svg)]()",
   "directories": {
-    "test": "tests"
+    "test": "test"
   },
   "scripts": {
     "build": "tsc",
     "dev": "tsx ./src/index.ts",
     "start": "node .",
     "watch": "tsc --watch",
-    "test:api": "ts-node src/tests/nome do arquino.ts",
+    "test:api": "ts-node src/tests/nome do arquivo.ts",
     "test": "vitest"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "qa",
+    "vitest",
+    "typescript",
+    "integration-tests"
+  ],
+  "author": "Fabiano Paiva/QA",
   "license": "ISC",
   "devDependencies": {
-    "supertest": "^6.3.4",
     "@types/express": "^5.0.6",
     "@types/node": "^26.6.3",
     "@types/supertest": "^7.2.1",
+    "supertest": "^6.3.4",
     "ts-node": "^10.9.2",
     "tsx": "^4.23.15",
     "typescript": "^7.0.2",
     "vitest": "^5.0.3"
   },
   "dependencies": {
-    "express": "^5.2.1",
-    "supertest": "^7.3.0"
-  }
+    "express": "^5.2.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FabianoPaiva/testesIntegracao.git"
+  },
+  "types": "./build/index.d.ts",
+  "bugs": {
+    "url": "https://github.com/FabianoPaiva/testesIntegracao/issues"
+  },
+  "homepage": "https://github.com/FabianoPaiva/testesIntegracao#readme"
 }
