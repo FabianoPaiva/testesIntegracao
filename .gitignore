@@ -1,0 +1,32 @@
+# Dependências
+node_modules
+/node_modules/
+
+# Logs de execução do npm e do Node.js
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Ambiente de Build / Compilação (TypeScript e Vite/Vitest)
+/dist/
+/build/
+/.tsbuildinfo
+/.vite/
+
+# Arquivos de Teste / Cobertura
+/coverage/
+/.nyc_output/
+
+# Arquivos de Configuração de Sistema Operacional / Editor
+.DS_Store
+Thumbs.db
+.vscode/*
+!.vscode/extensions.json
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.swp

@@ -1,0 +1,35 @@
+{
+  "name": "testesintegracao",
+  "main": "./build/index.js",
+  "type": "module",
+  "version": "1.0.0",
+  "description": "",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsx ./src/index.ts",
+    "start": "node .",
+    "watch": "tsc --watch",
+    "test:api": "ts-node src/tests/nome do arquino.ts",
+    "test": "vitest"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "supertest": "^6.3.4",
+    "@types/express": "^5.0.6",
+    "@types/node": "^26.6.3",
+    "@types/supertest": "^7.2.1",
+    "ts-node": "^10.9.2",
+    "tsx": "^4.23.15",
+    "typescript": "^7.0.2",
+    "vitest": "^5.0.3"
+  },
+  "dependencies": {
+    "express": "^5.2.1",
+    "supertest": "^7.3.0"
+  }
+}
