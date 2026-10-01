@@ -5,7 +5,7 @@
 [![Supertest](https://img.shields.io/badge/Supertest-HTTP-orange.svg)](https://github.com/ladjs/supertest)
 [![Status](https://img.shields.io/badge/Status-Passing-success.svg)]()
 
-Suíte de testes de integração de **nível corporativo (Enterprise)** para validação de contratos, fluxos de negócio, auditoria de persistência e tratamento de exceções em APIs RESTful. Desenvolvida utilizando **TypeScript**, **Vitest** e **Supertest**, com simulação de servidor via **Express**.
+Suíte de testes de integração para validação de APIs RESTful. Desenvolvida utilizando **TypeScript**, **Vitest** e **Supertest**, com simulação de servidor via **Express**.
 
 ---
 
@@ -62,6 +62,8 @@ Certifique-se de ter instalado em sua máquina:
 1 - Clone o repositório ou acesse a pasta do projeto:
 
 ```
+git clone https://github.com/FabianoPaiva/testesIntegracao.git
+ou
 cd testesIntegracao
 ```
 
@@ -92,12 +94,12 @@ npx vitest
 A suíte cobre rigorosamente 5 pilares fundamentais da qualidade de APIs:
 
 ```
-#	Cenário / Descrição	                              Método	            Rota / Endpoint	  Status Esperado
+#	Cenário / Descrição	                              Método	        Rota / Endpoint	  Status Esperado
 1	Caminho Feliz e Auditoria (GET após PATCH)	      PATCH + GET	    /users/:id	          200 OK
 2	Validação de Payload Inválido (Bad Request)	      PATCH	            /users/:id	          400 Bad Request
 3	Conflito de Regra de Negócio (E-mail Duplicado)	  PATCH	            /users/:id	          409 Conflict
 4	Tratamento de Recurso Inexistente	              PATCH	            /users/:id	          404 Not Found
-5	Idempotência de Exclusão (Delete Duplo)	          DELETE	            /users/:id	          204 No Content → 404 Not Found
+5	Idempotência de Exclusão (Delete Duplo)	          DELETE	        /users/:id	          204 No Content → 404 Not Found
 ```
 
 ---
