@@ -95,9 +95,9 @@ A suíte cobre rigorosamente 5 pilares fundamentais da qualidade de APIs:
 #	Cenário / Descrição	                              Método	            Rota / Endpoint	  Status Esperado
 1	Caminho Feliz e Auditoria (GET após PATCH)	      PATCH + GET	    /users/:id	          200 OK
 2	Validação de Payload Inválido (Bad Request)	      PATCH	            /users/:id	          400 Bad Request
-3	Conflito de Regra de Negócio (E-mail Duplicado)	      PATCH	            /users/:id	          409 Conflict
+3	Conflito de Regra de Negócio (E-mail Duplicado)	  PATCH	            /users/:id	          409 Conflict
 4	Tratamento de Recurso Inexistente	              PATCH	            /users/:id	          404 Not Found
-5	Idempotência de Exclusão (Delete Duplo)	              DELETE	            /users/:id	          204 No Content → 404 Not Found
+5	Idempotência de Exclusão (Delete Duplo)	          DELETE	            /users/:id	          204 No Content → 404 Not Found
 ```
 
 ---
